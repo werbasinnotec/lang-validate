@@ -1,0 +1,32 @@
+{
+  "name": "lang-validate",
+  "version": "1.0.0",
+  "description": "A small module to validate iso languagecodes",
+  "main": "./service/index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "pre-commit": [
+    "test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/werbasinnotec/lang-validate.git"
+  },
+  "author": "Martin Wiesmüller <martin.wiesmueller@werbas-ag.com> (werbasinnotec.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/werbasinnotec/lang-validate/issues"
+  },
+  "homepage": "https://github.com/werbasinnotec/lang-validate#readme",
+  "devDependencies": {
+    "assertthat": "0.9.0",
+    "gulp": "3.9.1",
+    "gulp-batch": "1.0.5",
+    "gulp-eslint": "3.0.1",
+    "gulp-mocha": "4.3.1",
+    "gulp-shell": "0.6.3",
+    "gulp-watch": "4.3.11",
+    "pre-commit": "1.2.2"
+  }
+}
