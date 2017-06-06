@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path');
-const lang = require(path.resolve('./service/lang'));
+const lang = require('./lang.json');
 let defaultLang = 'en';
 
 const wrapper = {
