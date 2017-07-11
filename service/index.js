@@ -1,6 +1,5 @@
 'use strict';
 
-const path = require('path');
 const lang = require('./lang.json');
 let defaultLang = 'en';
 
@@ -26,6 +25,10 @@ const wrapper = {
   },
 
   getLanguage: (code) => {
+    if (code) {
+      code = code.replace('_', '-');
+    }
+
     if (!wrapper.validate(code)) {
       throw new Error('The named Language is not famous');
     }

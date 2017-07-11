@@ -68,6 +68,13 @@ describe('service.getLanguage...', () => {
     assert.that(service.getLanguage('de').name).is.equalTo('German');
     done();
   });
+
+  it('... returns the object when the languagecode is with _ separator', (done) => {
+    assert.that(service.getLanguage('de_DE')).is.ofType('object');
+    assert.that(service.getLanguage('de_DE').name).is.equalTo('German (Germany)');
+    assert.that(service.getLanguage('de_DE').code).is.equalTo('de-DE');
+    done();
+  });
 });
 
 describe('service.getDefault...', () => {
