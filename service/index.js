@@ -9,6 +9,8 @@ const wrapper = {
       throw new Error('No Languagecode is defined');
     }
 
+    code = code.replace('_', '-');
+
     let response = false;
 
     for (let i = 0; i < lang.length; i++) {
