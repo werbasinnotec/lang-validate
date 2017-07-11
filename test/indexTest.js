@@ -23,6 +23,11 @@ describe('sevice.validate...', () => {
     done();
   });
 
+  it('... returns true when code is valid with _ separator', (done) => {
+    assert.that(service.validate('de_DE')).is.true();
+    done();
+  });
+
   it('... returns false when code is invalid', (done) => {
     assert.that(service.validate('de-it')).is.falsy();
     done();
