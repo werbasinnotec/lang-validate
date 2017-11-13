@@ -1,6 +1,6 @@
 # Lang validator
 
-The module `lang-validate` is a small module to check all iso languagecodes and his regions.
+The module `lang-validate` is a small module to check all iso languagecodes and regions.
 
 ## Installation
 
