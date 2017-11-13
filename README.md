@@ -54,10 +54,35 @@ language.setDefault('de'); // The default Language is now `de`
 language.getDefault(); // Returns `de`
 ```
 
+## Check an array with languagecodes
+
+With this method you can validate an array with languagecodes and texts:
+
+Example:
+
+```
+const array = [
+  { languagecode: 'en', text: 'Foo' },
+  { languagecode: 'de', text: 'Bar' }
+];
+
+
+language.validateArray(array);
+```
+
+### Validation Process:
+
+If a languagecode is not valid, the method will throw an error. Otherwise the method will return the complete object.
+
+Why the method will return the complete called object?
+
+In the validation process the method check all languagecodes. If the languagecode are valid, the method maps the languagecode by the languagetable of this module (language.getLanguage('en').code). So you can ensure that the code is in the correct digits.
+
+
 ## License
 
 The MIT License (MIT)
-Copyright (c) 2015 Werbasinnotec.
+Copyright (c) 2017 Werbasinnotec.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

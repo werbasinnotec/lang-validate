@@ -122,3 +122,50 @@ describe('service.setDefault...', () => {
     done();
   });
 });
+
+describe('service.validateArray...', () => {
+  it('... is of type function', (done) => {
+    assert.that(service.validateArray).is.ofType('function');
+    done();
+  });
+
+  it('... throws an error when object is not defined', (done) => {
+    assert.that(() => {
+      service.validateArray();
+    }).is.throwing('The called object is not an array');
+    done();
+  });
+
+  it('... throws an error when the called object is not an array', (done) => {
+    assert.that(() => {
+      service.validateArray({});
+    }).is.throwing('The called object is not an array');
+    done();
+  });
+
+  it('... throws an error when the called object includes a languagecode there is not valid', (done) => {
+    assert.that(() => {
+      service.validateArray([
+        { languagecode: 'en', text: 'Test1' },
+        { languagecode: 'de-it', text: 'Test2' }
+      ]);
+    }).is.throwing('The languagecode de-it is not valid! Please check your object!');
+    done();
+  });
+
+  it('... returns the object with corrected languagecodes', (done) => {
+    const obj = [
+      { languagecode: 'en', text: 'Test1' },
+      { languagecode: 'de_de', text: 'Test2' }
+    ];
+
+    const res = service.validateArray(obj);
+
+    assert.that(res).is.equalTo([
+      { languagecode: 'en', text: 'Test1' },
+      { languagecode: 'de-DE', text: 'Test2' }
+    ]);
+
+    done();
+  });
+});

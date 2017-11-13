@@ -54,6 +54,24 @@ const wrapper = {
     }
 
     return false;
+  },
+
+  validateArray: (obj) => {
+    if (!(obj instanceof Array)) {
+      throw new Error('The called object is not an array');
+    }
+
+    for (let i = 0; i < obj.length; i++) {
+      if (!wrapper.validate(obj[i].languagecode)) {
+        throw new Error('The languagecode ' + obj[i].languagecode + ' is not valid! Please check your object!');
+
+        break;
+      }
+
+      obj[i].languagecode = wrapper.getLanguage(obj[i].languagecode).code;
+    }
+
+    return obj;
   }
 };
 
